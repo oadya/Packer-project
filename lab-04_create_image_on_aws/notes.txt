@@ -1,0 +1,16 @@
+Documentation - https://developer.hashicorp.com/packer/docs
+
+#vérifier la syntax
+packer fmt ubuntu.pkr.hcl
+
+#installer le plugins
+packer init ubuntu.pkr.hcl
+
+#validation
+packer validate ubuntu.pkr.hcl
+
+#Creation iso a partir de la vm temporaire a partir  iso ubuntu
+packer build ubuntu.pkr.hcl
+
+
+

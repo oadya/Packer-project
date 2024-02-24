@@ -1,0 +1,4 @@
+packer init golden-ami.pkr.hcl
+packer fmt golden-ami.pkr.hcl
+packer validate golden-ami.pkr.hcl
+packer build golden-ami.pkr.hcl

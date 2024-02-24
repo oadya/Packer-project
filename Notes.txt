@@ -1,0 +1,126 @@
+Packer: 
+-------
+
+ecris en HCL
+
+Permet d'harmoniser les processus de création des images
+Standardiser la production des images des VM ou conteneurs et les déployer sur plusieurs plateformes
+images qui embarques des certificats, désactivation de certains comptes, 
+pour les éuipes système, métiers et applicatives
+standardiser les images pour l'infrasstructure on promise ou cloud => catalogue des images onprime et cloud
+meilleurs gesttion du cycle de vie de nos images à échelle
+Gain de temps pour la creation de nouvelle VM ou du scaling  avec des images déjà prêtes
+
+Avantage:
+--------
+Déploiement rapide
+multi provider
+stabilité du système par l'uniformité(outil de trace des log,)
+Environnement mirroir
+
+
+Plan de construction des images:
+--------------------------------
+image golden pour sysadmin (antivirus, monitoring, Log) => images à jour et patché
+image middleware avec docker installé
+image webapp avec conteneur
+image middleware + webapp 
+
+Compasants de packer :
+----------------------
+
+Source: contient les élément utils a la production de l'image de base à custumiser
+
+Builders: Construction/build de l'image en fonction de la plateforme qui va accueillir l'image
+
+provisioner: customiser image
+
+post-processors: déclencher des action apres la production de l'image
+
+Variables : gestion des variables
+
+communicator : protocoles pour discuter avec l'instance temporaire: ssh, winrm
+
+
+
+variables
+---------
+
+variable "image_id" {
+  type = string
+}
+
+packer build -var="image_ami=ami123"
+
+packer build -var-file="dev.pkrvars.hcl"
+
+
+ENV
+---
+
+export PKR_VAR_image_id=id123
+
+
+Provisioners
+-------------
+Permettent rajouter des librairies et outils à l'image de base
+
+Ansible, chef, puppet, shell,powershell,file
+
+
+Plugins
+-------
+build in plugins(shell) et external plugins
+Pour utiliser certains provisioners il faut installer certains plugins tels que ansible, docker,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

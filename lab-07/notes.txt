@@ -1,0 +1,9 @@
+packer init webapp-docker.pkr.hcl
+packer fmt webapp-docker.pkr.hcl
+packer validate webapp-docker.pkr.hcl
+packer build webapp-docker.pkr.hcl
+
+docker images
+docker run -d --name webapp -p 80:80 local/webapp:1.0
+curl localhost
+docker rm -f local/webapp:1.0

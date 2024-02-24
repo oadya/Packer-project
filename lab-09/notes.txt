@@ -1,0 +1,6 @@
+packer init webapp-ami.pkr.hcl
+packer fmt webapp-ami.pkr.hcl
+packer validate webapp-ami.pkr.hcl
+
+export AWS_ACCOUNT_ID="toto"
+packer build -var="aws_access_key=$AWS_ACCESS_KEY_ID" -var="aws_secret_key=$AWS_SECRET_ACCESS_KEY" -var="ecr_login_url=https://${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com" -var="ecr_registry=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/webapp" webapp-ami.pkr.hcl

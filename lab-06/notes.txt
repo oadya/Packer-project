@@ -1,0 +1,6 @@
+# Il faut avoir ansible installé sur votre VM packer avant de lancer builder l'image, ma VM devops-sandbox a déjà ansible d'installer
+
+packer init middleware-ami.pkr.hcl
+packer fmt middleware-ami.pkr.hcl
+packer validate middleware-ami.pkr.hcl
+packer build middleware-ami.pkr.hcl

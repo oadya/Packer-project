@@ -1,0 +1,18 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.define "devops" do |devops|
+    devops.vm.box = "fasmat/ubuntu2004-desktop"
+    devops.vm.network "private_network", type: "dhcp"
+    devops.vm.hostname = "devops"
+    devops.vm.provider "virtualbox" do |v|
+      v.name = "devops"
+      v.memory = 4096
+      v.cpus = 2
+    end
+    devops.vm.provision :shell do |shell|
+      shell.path = "install_devops.sh"
+    end
+  end
+end
