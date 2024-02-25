@@ -35,7 +35,8 @@ Builders: Construction/build de l'image en fonction de la plateforme qui va accu
 
 provisioner: customiser image
 
-post-processors: déclencher des action apres la production de l'image
+post-processors: déclencher des action apres la production de l'image(notifier des utilisateur, lancer des scripts,docker(tag et push)
+declencher un pipeline pour utiliser la nouvelle image, compression des ami, scanner les vulnerabiites des images avant des les publier sur les registres)
 
 Variables : gestion des variables
 
@@ -59,6 +60,9 @@ ENV
 ---
 
 export PKR_VAR_image_id=id123
+
+PACKER_LOG=1
+PACKER_LOG_PATH=
 
 
 Provisioners
